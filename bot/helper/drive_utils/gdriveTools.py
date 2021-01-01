@@ -119,18 +119,18 @@ class GoogleDriveHelper:
                 for file in response:
                     if file.get('mimeType') == "application/vnd.google-apps.folder":  # Detect Whether Current Entity is a Folder or File.
                         msg += f"🗃️<code>{file.get('name')}</code> <b>[𝐅𝐎𝐋𝐃𝐄𝐑]</b><br>" \
-                               f"<b><a href='https://drive.google.com/drive/folders/{file.get('id')}'>𝐃𝐑𝐈𝐕𝐄 𝐋𝐈𝐍𝐊</a></b>"
+                               f"<b><a href='https://drive.google.com/drive/folders/{file.get('id')}'>🌎𝐃𝐑𝐈𝐕𝐄 𝐋𝐈𝐍𝐊</a></b>"
                         if INDEX_URL[INDEX] is not None:
                             url_path = requests.utils.quote(f'{file.get("name")}')
                             url = f'{INDEX_URL[INDEX]}/{url_path}/'
-                            msg += f'<b> | <a href="{url}">𝐈𝐍𝐃𝐄𝐗 𝐋𝐈𝐍𝐊</a></b>'
+                            msg += f'<b> | <a href="{url}">📇𝐈𝐍𝐃𝐄𝐗 𝐋𝐈𝐍𝐊</a></b>'
                     else:
                         msg += f"📇<code>{file.get('name')}</code> <b>({self.get_readable_file_size(file.get('size'))})</b><br>" \
-                               f"<b><a href='https://drive.google.com/uc?id={file.get('id')}&export=download'>𝐃𝐑𝐈𝐕𝐄 𝐋𝐈𝐍𝐊</a></b>"
+                               f"<b><a href='https://drive.google.com/uc?id={file.get('id')}&export=download'>🌎𝐃𝐑𝐈𝐕𝐄 𝐋𝐈𝐍𝐊</a></b>"
                         if INDEX_URL[INDEX] is not None:
                             url_path = requests.utils.quote(f'{file.get("name")}')
                             url = f'{INDEX_URL[INDEX]}/{url_path}'
-                            msg += f'<b> | <a href="{url}">𝐈𝐍𝐃𝐄𝐗 𝐋𝐈𝐍𝐊</a></b>'
+                            msg += f'<b> | <a href="{url}">📇𝐈𝐍𝐃𝐄𝐗 𝐋𝐈𝐍𝐊</a></b>'
                     msg += '<br><br>'
                     content_count += 1
                     if content_count == TELEGRAPHLIMIT :
